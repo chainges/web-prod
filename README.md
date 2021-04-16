@@ -1,4 +1,4 @@
-# The Kitchen Sink Studio
+# The Kitchen Sink Studio - Scope321 version
 
 A “[kitchen sink](https://stackoverflow.com/questions/33779296/what-is-exact-meaning-of-kitchen-sink-in-programming)” is a showcase of APIs and functionality. This is the example project that we at Sanity HQ use for demos. Hence, it will change and evolve over time with new feature releases.
 
