@@ -16,5 +16,8 @@
   "devDependencies": {
     "@sanity/cli": "^2.1.0",
     "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "@octokit/core": "^3.4.0"
   }
 }
