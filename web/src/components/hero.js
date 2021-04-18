@@ -16,7 +16,7 @@ const maybeImage = illustration => {
 
     img = (
       <GatsbyImage
-        className="w-full md:w-4/5 z-50"
+        className="w-full md:w-4/5" // z-10"
         image={imageData}
         alt={illustration.image.alt}
       />
