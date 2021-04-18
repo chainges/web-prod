@@ -20,7 +20,7 @@ export default {
                 {
                   buildHookId: '60773a711cb1c51dae7a424a',
                   title: 'Website',
-                  name: 'scope321',
+                  name: 'scope321-1',
                   apiId: 'ca9922f3-ba8a-4531-8af1-cf3e2a194e85'
                 }
               ]
