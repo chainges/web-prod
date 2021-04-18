@@ -14,13 +14,13 @@ export default {
                 {
                   buildHookId: '60773a71d4c2651e752e6e01',
                   title: 'Sanity Studio',
-                  name: 'sanity-kitchen-sink-studio-zvkupi8f',
+                  name: 'Scope321-studio',
                   apiId: 'e8b93f4a-0151-4e21-80a1-ef8e2e989f24'
                 },
                 {
                   buildHookId: '60773a711cb1c51dae7a424a',
-                  title: 'Blog Website',
-                  name: 'sanity-kitchen-sink-web-p54onu7p',
+                  title: 'Website',
+                  name: 'scope321',
                   apiId: 'ca9922f3-ba8a-4531-8af1-cf3e2a194e85'
                 }
               ]
@@ -30,10 +30,10 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/emelleby/sanity-kitchen-sink',
+            value: 'https://github.com/chainges/web-prod',
             category: 'Code'
           },
-          {title: 'Frontend', value: 'https://sanity-kitchen-sink-web-p54onu7p.netlify.app', category: 'apps'}
+          {title: 'Frontend', value: 'https://scope321-1.netlify.app', category: 'apps'}
         ]
       }
     },
