@@ -1,6 +1,7 @@
 import React from "react";
 import PortableText from "../components/portableText";
 import CTALink from "./CTALink";
+import SignupEmail from "./signupEmail";
 
 const CTA = ({ label, title, body, ctas }) => (
   <section className="container mx-auto text-center py-6 mb-12">
@@ -9,7 +10,7 @@ const CTA = ({ label, title, body, ctas }) => (
       <div className="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
     </div>
 
-    <p className="my-4 text-3xl leading-tight">
+    <p className="my-4 text-3xl leading-tight max-w-5xl mx-auto">
       <PortableText blocks={body} />
     </p>
 
@@ -24,6 +25,9 @@ const CTA = ({ label, title, body, ctas }) => (
         </div>
       ))}
     </div>
+
+    <SignupEmail></SignupEmail>
+
   </section>
 );
 
