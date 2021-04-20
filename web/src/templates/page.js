@@ -7,6 +7,8 @@ import CTAColumns from "../components/cta-columns";
 import CTA from "../components/cta";
 import Pricing from "../components/pricing";
 import { TopWave, BottomWave } from "../components/wave";
+// Add import of a custom component
+import { SignupEmail } from "../components/signupEmail";
 
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -90,6 +92,10 @@ const Page = props => {
               break;
             case "bottomWave":
               el = <BottomWave />;
+              break;
+            // Add possibility to insert custom component as UI-component reference
+            case "signupEmail":
+              el = <SignupEmail />;
               break;
             default:
               break;
