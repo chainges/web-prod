@@ -17,7 +17,7 @@ function Hero(props) {
       ));
     }
   }, [props.illustration])
-  // setImg(maybeImage(props.illustration));
+
   return (
     <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left col */}
