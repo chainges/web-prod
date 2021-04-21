@@ -1,6 +1,5 @@
 @import "../styles/custom-media.css";
 @import "../styles/custom-properties.css";
-
 .title {
   composes: responsiveTitle1 from "./typography.module.css";
 }
@@ -10,7 +9,6 @@
   position: relative;
   background: var(--color-very-light-gray);
   padding-bottom: calc(9 / 16 * 100%);
-
   @nest & img {
     display: block;
     position: absolute;
@@ -35,14 +33,12 @@
 .mainContent {
   @nest & a {
     color: var(--color-accent);
-
     @media (hover: hover) {
       @nest &:hover {
         color: inherit;
       }
     }
   }
-
   @nest & h1 {
     font-size: 2em;
     font-weight: 900;
@@ -55,42 +51,34 @@
     font-size: 1.25em;
     font-weight: 600;
   }
-
   @nest & h4 {
     font-size: 1em;
     font-weight: bold;
   }
-
   @nest & h2, & h3, & h4, & h5, & h6 {
     margin: 0.75em 0 0.5em 0;
   }
-
   @nest & p {
     padding-top: 0.5em;
   }
-
   @nest & figure {
     margin: 0;
     padding: 0;
-
     @nest & img {
       max-width: 100%;
     }
   }
-
   @nest & ol {
     margin-left: 1.5em;
     list-style: decimal;
   }
-
   @nest & ul {
     margin-left: 1.5em;
     list-style: circle;
   }
 }
 
-.metaContent {
-}
+.metaContent {}
 
 .publishedAt {
   composes: small from "./typography.module.css";
@@ -101,13 +89,11 @@
 .categories {
   border-top: 1px solid var(--color-very-light-gray);
   margin: 2rem 0 3rem;
-
   @nest & ul {
     list-style: none;
     margin: 0.75rem 0;
     padding: 0;
   }
-
   @nest & ul li {
     padding: 0.25rem 0;
   }

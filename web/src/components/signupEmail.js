@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
 import * as styles from "./signupEmail.module.css"
+
+import React, { useEffect, useState } from "react";
+
 import axios from 'axios'
 
 const SignupEmail = (props) => {

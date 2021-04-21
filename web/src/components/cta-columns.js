@@ -1,5 +1,5 @@
-import React from "react";
 import PortableText from "./portableText";
+import React from "react";
 
 const CTAColumn = ({ width, label, title, body, ctas = [] }) => {
   const className = `w-full md:w-1/${width} p-6 flex flex-col flex-grow flex-shrink`;

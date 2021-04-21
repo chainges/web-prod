@@ -1,15 +1,16 @@
-import React from "react";
-import { graphql } from "gatsby";
 import {
-  mapEdgesToNodes,
+  filterOutDocsPublishedInTheFuture,
   filterOutDocsWithoutSlugs,
-  filterOutDocsPublishedInTheFuture
+  mapEdgesToNodes
 } from "../lib/helpers";
+
 import BlogPostPreviewList from "../components/blog-post-preview-list";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import React from "react";
+import SEO from "../components/seo";
+import { graphql } from "gatsby";
 
 export const query = graphql`
   query IndexPageQuery {
@@ -54,8 +55,8 @@ const IndexPage = props => {
   const site = (data || {}).site;
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
-        .filter(filterOutDocsWithoutSlugs)
-        .filter(filterOutDocsPublishedInTheFuture)
+      .filter(filterOutDocsWithoutSlugs)
+      .filter(filterOutDocsPublishedInTheFuture)
     : [];
 
   if (!site) {

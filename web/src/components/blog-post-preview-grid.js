@@ -1,6 +1,6 @@
+import BlogPostPreview from "./blog-post-preview";
 import { Link } from "gatsby";
 import React from "react";
-import BlogPostPreview from "./blog-post-preview";
 
 function BlogPostPreviewGrid({ nodes }) {
   return (

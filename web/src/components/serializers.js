@@ -1,9 +1,9 @@
-import React from "react";
 import Figure from "./Figure";
-import MainImage from "./MainImage";
-import ReactPlayer from "react-player";
 import InstagramEmbed from "react-instagram-embed";
 import LatexRenderer from "./Latex";
+import MainImage from "./MainImage";
+import React from "react";
+import ReactPlayer from "react-player";
 
 const AuthorReference = ({ node }) => {
   if (node && node.author && node.author.name) {

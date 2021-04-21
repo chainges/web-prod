@@ -1,6 +1,5 @@
 @import '../styles/custom-media.css';
 @import '../styles/custom-properties.css';
-
 .root {
   display: blog;
   color: inherit;
@@ -9,7 +8,6 @@
 
 .inList {
   composes: root;
-
   @media (--media-min-medium) {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -25,7 +23,6 @@
   position: relative;
   padding-bottom: 66.666%;
   background: var(--color-very-light-gray);
-
   @nest & img {
     position: absolute;
     top: 0;
@@ -46,7 +43,6 @@
       text-decoration: underline;
     }
   }
-
   @media (--media-min-medium) {
     @nest .inList & {
       margin-top: 0;
@@ -58,7 +54,6 @@
   @nest & p {
     margin: 0.5em 0;
   }
-
   @nest & strong {
     font-weight: 600;
   }

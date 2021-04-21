@@ -1,5 +1,6 @@
-import React from "react";
 import { Link, navigate } from "gatsby";
+
+import React from "react";
 
 const doNavigate = target => {
   if (!target || !target.length) {

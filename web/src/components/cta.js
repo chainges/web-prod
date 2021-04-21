@@ -1,6 +1,6 @@
-import React from "react";
-import PortableText from "../components/portableText";
 import CTALink from "./CTALink";
+import PortableText from "../components/portableText";
+import React from "react";
 import SignupEmail from "./signupEmail";
 
 const CTA = ({ label, title, body, ctas }) => (

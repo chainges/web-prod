@@ -1,9 +1,9 @@
+import * as styles from "./general-article.module.css";
+
 import { Link } from "gatsby";
+import PortableText from "./portableText";
 import React from "react";
 import { cn } from "../lib/helpers";
-import PortableText from "./portableText";
-
-import * as styles from "./general-article.module.css";
 import { responsiveTitle3 } from "./typography.module.css";
 
 function GeneralArticle(props) {

@@ -1,6 +1,8 @@
-import React, { useState, useMemo, useCallback } from "react";
-import KaTeX from "katex";
 import "katex/dist/katex.min.css";
+
+import React, { useCallback, useMemo, useState } from "react";
+
+import KaTeX from "katex";
 
 const LatexRender = ({ isInline = false, latex = "" }) => {
   const [html, setHtml] = useState("");

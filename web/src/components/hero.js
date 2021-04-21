@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+import CTALink from "./CTALink";
+import { GatsbyImage } from "gatsby-plugin-image";
 import PortableText from "./portableText";
 import clientConfig from "../../client-config";
-import CTALink from "./CTALink";
-
 import { getGatsbyImageData } from "gatsby-source-sanity";
-import { GatsbyImage } from "gatsby-plugin-image";
 
 function Hero(props) {
   const [imageData, setImageData] = useState(null);

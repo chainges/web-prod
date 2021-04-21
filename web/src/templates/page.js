@@ -1,18 +1,23 @@
+import { BottomWave, TopWave } from "../components/wave";
 import React, { useState } from "react";
-import { graphql } from "gatsby";
 
+import CTA from "../components/cta";
+import CTAColumns from "../components/cta-columns";
+import GraphQLErrorList from "../components/graphql-error-list";
 import Hero from "../components/hero";
 import InfoRows from "../components/InfoRows";
-import CTAColumns from "../components/cta-columns";
-import CTA from "../components/cta";
-import Pricing from "../components/pricing";
-import { TopWave, BottomWave } from "../components/wave";
-// Add import of a custom component
-import SignupEmail from "../components/signupEmail";
-
-import GraphQLErrorList from "../components/graphql-error-list";
-import SEO from "../components/seo";
 import Layout from "../containers/layout";
+import Pricing from "../components/pricing";
+import SEO from "../components/seo";
+import SignupEmail from "../components/signupEmail";
+import { graphql } from "gatsby";
+
+// Add import of a custom component
+
+
+
+
+
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {

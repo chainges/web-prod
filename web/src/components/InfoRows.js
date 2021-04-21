@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import PortableText from "./portableText";
+import React, { useEffect, useState } from "react";
 
-import { getGatsbyImageData } from "gatsby-source-sanity";
-import clientConfig from "../../client-config";
 import { GatsbyImage } from "gatsby-plugin-image";
+import PortableText from "./portableText";
+import clientConfig from "../../client-config";
+import { getGatsbyImageData } from "gatsby-source-sanity";
 
 const InfoRow = props => {
   const img = props.illustration.image;

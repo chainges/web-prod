@@ -1,6 +1,6 @@
+import CTALink from "./CTALink";
 import { Link } from "gatsby";
 import React from "react";
-import CTALink from "./CTALink";
 
 const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = true }) => {
   let headerClass = "fixed w-full z-30 top-0 text-white";

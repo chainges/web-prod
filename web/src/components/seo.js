@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
-import { imageUrlFor } from "../lib/image-url";
+
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import React from "react";
 import { buildImageObj } from "../lib/helpers";
+import { imageUrlFor } from "../lib/image-url";
 
 // https://ogp.me
 
@@ -18,8 +19,8 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttr, gradie
         const metaImage =
           image && image.asset
             ? imageUrlFor(buildImageObj(image))
-                .width(1200)
-                .url()
+              .width(1200)
+              .url()
             : "";
 
         const pageTitle = title || siteTitle;
@@ -75,9 +76,9 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttr, gradie
               .concat(
                 keywords && keywords.length > 0
                   ? {
-                      name: "keywords",
-                      content: keywords.join(", ")
-                    }
+                    name: "keywords",
+                    content: keywords.join(", ")
+                  }
                   : []
               )
               .concat(meta)}
