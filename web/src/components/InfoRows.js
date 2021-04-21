@@ -1,58 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PortableText from "./portableText";
 
 import { getGatsbyImageData } from "gatsby-source-sanity";
 import clientConfig from "../../client-config";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const maybeImage = illustration => {
-  let img = null;
-  if (
-    illustration &&
-    illustration.disabled !== true &&
-    illustration.image &&
-    illustration.image.asset
-  ) {
-    const imageData = getGatsbyImageData(
-      illustration.image,
-      { maxWidth: 960 },
-      clientConfig.sanity
-    );
-
-    img = (
-      <GatsbyImage
-        className="w-full sm:h-64 mx-auto"
-        image={imageData}
-        alt={illustration.image.alt}
-      />
-    );
-  }
-  return img;
-};
-
 const InfoRow = props => {
-  const img = maybeImage(props.illustration);
-  const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
+  const img = props.illustration.image;
+  const [imageData, setImageData] = useState(null);
+  useEffect(() => {
+    if (props.illustration && props.illustration.image && props.illustration.image.asset && !props.illustration.disabled) {
+      setImageData(getGatsbyImageData(
+        props.illustration.image,
+        { maxWidth: 960 },
+        clientConfig.sanity
+      ));
+    }
+  }, [props.illustration])
+
+  const sizeClassText = img ? "sm:w-3/5" : "sm:w-1/1";
+  const sizeClassImg = img ? "sm:w-2/5" : "sm:w-1/1";
   return (
     <div className={"flex flex-wrap pb-6"}>
-      <div className={"w-5/6 p-6 " + sizeClass}>
+      <div className={"w-3/5 p-6 " + sizeClassText}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
         </p>
       </div>
-      {img && <div className={"w-full " + sizeClass}>{img}</div>}
+      {img && <div className={"w-full " + sizeClassImg}>{imageData ? (
+        <GatsbyImage
+          className="w-full sm:h-64 mx-auto"
+          image={imageData}
+          alt={props.illustration.image.alt}
+        />
+      ) : (
+        <></>
+      )}</div>}
     </div>
   );
 };
 
 const InfoRowFlipped = props => {
-  const img = maybeImage(props.illustration);
-  const sizeClass = img ? "sm:w-1/2" : "sm:w-1/1";
+  const img = props.illustration.image;
+  const [imageData, setImageData] = useState(null);
+  useEffect(() => {
+    if (props.illustration && props.illustration.image && props.illustration.image.asset && !props.illustration.disabled) {
+      setImageData(getGatsbyImageData(
+        props.illustration.image,
+        { maxWidth: 960 },
+        clientConfig.sanity
+      ));
+    }
+  }, [props.illustration])
+
+  const sizeClassText = img ? "sm:w-3/5" : "sm:w-1/1";
+  const sizeClassImg = img ? "sm:w-2/5" : "sm:w-1/1";
   return (
     <div className={"flex flex-wrap pb-6 flex-col-reverse sm:flex-row"}>
-      {img && <div className={"w-full " + sizeClass}>{img}</div>}
-      <div className={"w-5/6 p-6 " + sizeClass}>
+      {img && <div className={"w-full " + sizeClassImg}>{imageData ? (
+        <GatsbyImage
+          className="w-full sm:h-64 mx-auto"
+          image={imageData}
+          alt={props.illustration.image.alt}
+        />
+      ) : (
+        <></>
+      )}</div>}
+      <div className={"w-5/6 p-6 " + sizeClassText}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />

@@ -1,0 +1,22 @@
+.emailField {
+    height: 42px;
+    border-radius: 5px;
+    padding: 0rem 1rem;
+    outline: none;
+    box-shadow: 2px 4px 10px #25383C;
+}
+
+.submitBtn {
+    background-color: #0188B6;
+    height: 55px;
+    padding: 1rem 1.5rem;
+    box-shadow: 2px 4px 10px #25383C;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
