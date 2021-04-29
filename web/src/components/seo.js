@@ -90,6 +90,7 @@ function SEO({ description, lang, meta, keywords, title, image, bodyAttr, gradie
               }
             `}</style>
             )}
+            <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           </Helmet>
         );
       }}

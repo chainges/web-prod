@@ -17,6 +17,10 @@
   }
 }
 
+.logoSvg {
+  transform: rotate(-45deg);
+}
+
 .branding {
   font-weight: 600;
   flex: 1;
