@@ -10,7 +10,8 @@
     "dev": "gatsby develop",
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "extract": "formatjs extract"
   },
   "dependencies": {
     "@sanity/block-content-to-react": "^2.0.7",
@@ -22,6 +23,7 @@
     "gatsby": "^3.0.4",
     "gatsby-plugin-google-analytics": "^3.0.0",
     "gatsby-plugin-image": "^1.0.1",
+    "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-postcss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.1",
@@ -39,11 +41,12 @@
     "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
+    "@formatjs/cli": "^4.2.15",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.21.5",
     "prettier-eslint-cli": "^4.7.1"
   }
 }
