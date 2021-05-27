@@ -11,6 +11,7 @@ import Pricing from "../components/pricing";
 import SEO from "../components/seo";
 import SignupEmail from "../components/signupEmail";
 import { graphql } from "gatsby";
+import Paper from "../components/Paper";
 
 // Add import of a custom component
 
@@ -101,6 +102,9 @@ const Page = props => {
             // Add possibility to insert custom component as UI-component reference
             case "signupEmail":
               el = <SignupEmail />;
+              break;
+            case "paper":
+              el = <Paper />;
               break;
             default:
               break;
