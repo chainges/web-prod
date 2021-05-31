@@ -1,6 +1,5 @@
 import BlogPostPreview from "./blog-post-preview";
-// import { Link } from "gatsby";
-import { Link } from "gatsby-plugin-intl";
+import { Link } from "gatsby";
 import React from "react";
 
 function BlogPostPreviewGrid({ nodes }) {

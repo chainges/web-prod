@@ -1,6 +1,5 @@
 import React from "react";
-// import { Link } from "gatsby";
-import { Link } from "gatsby-plugin-intl";
+import { Link } from "gatsby";
 
 const CTAction = ({ kind, title, link }) => (
   { kind === "button" && (

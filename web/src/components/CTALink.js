@@ -1,5 +1,4 @@
-// import { Link, navigate } from "gatsby";
-import { Link, navigate } from "gatsby-plugin-intl";
+import { Link, navigate } from "gatsby";
 
 import React from "react";
 

@@ -1,5 +1,4 @@
-// import { Link } from "gatsby";
-import { Link } from "gatsby-plugin-intl";
+import { Link } from "gatsby";
 import React from "react";
 
 const Footer = ({ siteTitle }) => (
