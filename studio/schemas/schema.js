@@ -36,6 +36,71 @@ const allPlugs = Object.values(plugs).map((plug) => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
 })
 
+
+// helper function which adds i18n config to each schema with type === 'document' to dynamically add the configs and fields to all the custom schema types
+const addLocalizationToDocumentType = (schemaType) => {
+  if (schemaType.type !== 'document') {
+    return schemaType
+  }
+
+  return {
+    ...schemaType,
+    i18n: {
+      ...schemaType.i18n,
+      base: {name: 'en', title: 'English'},
+      languages: [{name: 'en', title: 'English'}, {name: 'no', title: 'Norwegian'}],
+      // change the names of the default fields
+      fieldNames: {
+        lang: 'i18n_lang',
+        references: 'i18n_refs'
+      }
+    },
+    // add the fields in so we can query with them on graphql
+    fields: [
+      ...schemaType.fields,
+      {
+        name: 'i18n_lang',
+        type: 'string',
+        hidden: true
+      },
+      {
+        name: 'i18n_refs',
+        type: 'array',
+        hidden: true,
+        of: [{
+          type: 'i18n_refs_object',
+        }]
+      }
+    ]
+  }
+}
+
+const addLocalizationToSchemaType = (schemaType) => {
+  if (schemaType.type === 'object') {
+    return schemaType
+  } else {
+    return addLocalizationToDocumentType(schemaType)
+  }
+}
+
+let customSchemaTypes = [
+  page
+]
+const i18n_refs_object = {
+  name: 'i18n_refs_object',
+  type: 'object',
+  fields: [{
+    type: 'string',
+    name: 'lang'
+  }, {
+    type: 'reference',
+    name: 'ref',
+    // map over all the custom values to create a dynamic array of types which should be referenced
+    to: customSchemaTypes.map(customSchema => customSchema?.type === 'document' ? {type: customSchema.name} : null).filter(Boolean)
+  }]
+};
+customSchemaTypes = customSchemaTypes.map(schema => addLocalizationToSchemaType(schema))
+console.log(customSchemaTypes);
 export default createSchema({
   name: 'blog',
   types: schemaTypes // Built-in types
@@ -53,7 +118,7 @@ export default createSchema({
       siteSettings,
       post,
       navMenu,
-      page,
+      // page,
       category,
       author,
       mainImage,
@@ -62,6 +127,8 @@ export default createSchema({
       videoEmbed,
       bodyPortableText,
       excerptPortableText,
+      ...customSchemaTypes,
+      i18n_refs_object
     ])
-    .concat(allPlugs),
+    .concat(allPlugs)
 })
