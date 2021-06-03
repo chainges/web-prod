@@ -1,0 +1,24 @@
+{
+    "siteTitle": "Scope 3-to-1 - Enkelt klimaregnskap",
+    "links": {
+        "title": "Lenker",
+        "pageTheme": "Sidetema",
+        "sanityHelp": "Sanity Hjelp",
+        "slackCommunity": "Slakk samfunn"
+    },
+    "legal": {
+        "title": "Lovlig",
+        "terms": "Vilkår",
+        "privacy": "Personvern"
+    },
+    "social": {
+        "title": "Sosial",
+        "twitter": "Twitter",
+        "linkedin": "Linkedin"
+    },
+    "company": {
+        "title": "Selskap",
+        "blog": "Blogg",
+        "contact": "Ta kontakt med"
+    }
+}
