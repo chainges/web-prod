@@ -1,4 +1,5 @@
 const { isFuture } = require("date-fns");
+const { useIntl } = require("gatsby-plugin-intl");
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -36,7 +37,7 @@ async function createLandingPages(pathPrefix = "/", graphql, actions, reporter) 
       }
     }
   `);
-
+  const intl = useIntl();
   if (result.errors) throw result.errors;
 
   const routeEdges = (result.data.allSanityRoute || {}).edges || [];
@@ -47,7 +48,7 @@ async function createLandingPages(pathPrefix = "/", graphql, actions, reporter) 
     createPage({
       path,
       component: require.resolve("./src/templates/page.js"),
-      context: { id }
+      context: { id, lang: intl.locale }
     });
   });
 }

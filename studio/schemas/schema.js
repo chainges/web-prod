@@ -84,7 +84,7 @@ const addLocalizationToSchemaType = (schemaType) => {
 }
 
 let customSchemaTypes = [
-  page
+  // page
 ]
 const i18n_refs_object = {
   name: 'i18n_refs_object',
@@ -118,7 +118,7 @@ export default createSchema({
       siteSettings,
       post,
       navMenu,
-      // page,
+      page,
       category,
       author,
       mainImage,
@@ -128,7 +128,7 @@ export default createSchema({
       bodyPortableText,
       excerptPortableText,
       ...customSchemaTypes,
-      i18n_refs_object
+      // i18n_refs_object
     ])
     .concat(allPlugs)
 })

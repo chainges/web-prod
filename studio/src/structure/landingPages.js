@@ -17,19 +17,19 @@ export default S.listItem()
           .schemaType('navigationMenu')
           .child(
             
-            S.documentList()
-              .id('navigationMenu')
-              .title('Navigation Menus')
-              // Use a GROQ filter to get documents.
-              .filter('_type == "navigationMenu" && (!defined(_lang) || _lang == $baseLang)')
-              .params({ baseLang: i18n.base })
-              .canHandleIntent((_name, params, _context) => {
-                // Assume we can handle all intents (actions) regarding post documents
-                return params.type === 'navigationMenu'
-              })
-
-            // S.documentTypeList('navigationMenu')
+            // S.documentList()
+            //   .id('navigationMenu')
             //   .title('Navigation Menus')
+            //   // Use a GROQ filter to get documents.
+            //   .filter('_type == "navigationMenu" && (!defined(_lang) || _lang == $baseLang)')
+            //   .params({ baseLang: i18n.base })
+            //   .canHandleIntent((_name, params, _context) => {
+            //     // Assume we can handle all intents (actions) regarding post documents
+            //     return params.type === 'navigationMenu'
+            //   })
+
+            S.documentTypeList('navigationMenu')
+              .title('Navigation Menus')
           ),
         S.listItem()
           .title('Routes')
