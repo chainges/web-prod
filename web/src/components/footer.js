@@ -1,4 +1,5 @@
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-intl";
 import { FormattedMessage } from "gatsby-plugin-intl";
 import React from "react";
 

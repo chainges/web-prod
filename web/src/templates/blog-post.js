@@ -2,14 +2,14 @@ import BlogPost from "../components/blog-post";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import Layout from "../containers/layout";
-import React from "react";
+import React, { useEffect } from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
-    post: sanityPost(id: { eq: $id }) {
+  query BlogPostTemplateQuery($slug: String! $locale: String!) {
+    post: sanityPost(slug: { current: { eq: $slug } } i18n_lang: { eq: $locale }) {
       id
       publishedAt
       categories {

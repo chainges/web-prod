@@ -35,8 +35,8 @@ export const query = graphql`
     }
   }
 
-  query FrontpageQuery {
-    page: sanityPage(_id: { regex: "/(drafts.|)frontpage/" }) {
+  query FrontpageQuery($locale: String!) {
+    page: sanityPage(_id: { regex: "/(drafts.|)frontpage/" } i18n_lang: { eq: $locale }) {
       ...PageInfo
     }
 

@@ -34,15 +34,24 @@ const blog = S.listItem()
               .title('Published posts')
               .menuItems(S.documentTypeList('post').getMenuItems())
               // Only show posts with publish date earlier than now and that is not drafts
-              .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**"))')
-              .child((documentId) =>
-                S.document()
-                  .documentId(documentId)
-                  .schemaType('post')
-                  .views([S.view.form(), PreviewIFrame()])
-              )
+              .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**")) && !defined(i18n_lang)')
+              // .child((documentId) =>
+              //   S.document()
+              //     .documentId(documentId)
+              //     .schemaType('post')
+              //     .views([S.view.form(), PreviewIFrame()])
+              // )
           ),
-        S.documentTypeListItem('post').title('All posts').icon(AllIcon),
+        S.listItem()
+          .title('All posts')
+          .schemaType('post')
+          .icon(AllIcon)
+          .child(
+            S.documentList('post')
+              .title('All posts')
+              .menuItems(S.documentTypeList('post').getMenuItems())
+              .filter('_type == "post" && !defined(i18n_lang)')
+          ),
         S.listItem()
           .title('Posts by category')
           .child(
@@ -56,7 +65,7 @@ const blog = S.listItem()
                   .schemaType('post')
                   .title('Posts')
                   .filter(
-                    '_type == "post" && $catId in categories[]._ref'
+                    '_type == "post" && $catId in categories[]._ref && !defined(i18n_lang)'
                   )
                   .params({ catId })
               )

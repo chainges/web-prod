@@ -1,6 +1,7 @@
 import * as styles from "./general-article.module.css";
 
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-intl";
 import PortableText from "./portableText";
 import React from "react";
 import { cn } from "../lib/helpers";

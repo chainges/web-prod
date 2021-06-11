@@ -3,8 +3,10 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV || "development"}`
 });
 
+
 const path = require("path");
 const clientConfig = require("./client-config");
+const { languages, baseLanguage } = require('./src/intl/languages');
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -36,9 +38,9 @@ module.exports = {
         // language JSON resource path
         path: `${__dirname}/src/intl`,
         // supported language
-        languages: [`en`, `no`],
+        languages: languages.map((language) => language.name),
         // language file path
-        defaultLanguage: `en`,
+        defaultLanguage: baseLanguage.name,
         // option to redirect to `/en` when connecting `/`
         redirect: true,
       },

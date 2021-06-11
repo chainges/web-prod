@@ -6,9 +6,11 @@ function Paper() {
     const iframeRef = useRef(null);
     
     const handleResize = () => {
-        const contentHeight = iframeRef.current.contentWindow.document.body.scrollHeight + 100;
-        if (contentHeight > height)
-            setHeight(contentHeight);
+        if (iframeRef.current.contentWindow.document.body) {
+            const contentHeight = iframeRef.current.contentWindow.document.body.scrollHeight + 100;
+            if (contentHeight > height)
+                setHeight(contentHeight);
+        }
     }
 
     useEffect(() => {
@@ -18,7 +20,7 @@ function Paper() {
         return () => {
             clearInterval(resizeInterval);
         }
-    })
+    }, [])
     return (
         <div style={{height: `${height}px`, width: '100%', backgroundColor: 'white', padding:'2em'}}>
             <iframe
@@ -26,7 +28,6 @@ function Paper() {
                 id='paperFrame'
                 ref={iframeRef}
                 onLoad={() => {
-                    iframeRef.current.contentWindow.addEventListener('resize', handleResize);
                     handleResize();
                 }} 
                 style={{width: '100%', height: '100%'}}

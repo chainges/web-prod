@@ -1,4 +1,5 @@
 const { isFuture } = require("date-fns");
+const { languages, baseLanguage } = require('./src/intl/languages');
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -81,7 +82,7 @@ async function createBlogPostPages(pathPrefix = "/blog", graphql, actions, repor
       createPage({
         path,
         component: require.resolve("./src/templates/blog-post.js"),
-        context: { id }
+        context: { id, slug: slug.current }
       });
     });
 }
@@ -89,4 +90,32 @@ async function createBlogPostPages(pathPrefix = "/blog", graphql, actions, repor
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createLandingPages("/", graphql, actions, reporter);
   await createBlogPostPages("/blog", graphql, actions, reporter);
+};
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions;
+
+  deletePage(page);
+
+  const getLocale = (path) => {
+    let locale = "en";
+    const pathname = path.split('/');
+    if (pathname.length >= 2) {
+      languages.forEach((language) => {
+        if (pathname[1] == language.name) {
+          locale = language.name
+        }
+      })
+    }
+    return locale;
+  }
+  const locale = getLocale(page.path);
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      locale: locale,
+    },
+  });
+
 };

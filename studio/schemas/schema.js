@@ -32,10 +32,11 @@ import variation from './objects/variation'
 import openGraph from './objects/openGraph'
 import latex from './latex'
 
+import {languages, baseLanguage} from '../schemas/documents/languages';
+
 const allPlugs = Object.values(plugs).map((plug) => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
 })
-
 
 // helper function which adds i18n config to each schema with type === 'document' to dynamically add the configs and fields to all the custom schema types
 const addLocalizationToDocumentType = (schemaType) => {
@@ -47,8 +48,8 @@ const addLocalizationToDocumentType = (schemaType) => {
     ...schemaType,
     i18n: {
       ...schemaType.i18n,
-      base: {name: 'en', title: 'English'},
-      languages: [{name: 'en', title: 'English'}, {name: 'no', title: 'Norwegian'}],
+      base: baseLanguage,
+      languages: languages,
       // change the names of the default fields
       fieldNames: {
         lang: 'i18n_lang',
@@ -83,8 +84,11 @@ const addLocalizationToSchemaType = (schemaType) => {
   }
 }
 
+// add schemas here in which you want to add localization. make sure to commnet/delete that schema from below "createSchema"
 let customSchemaTypes = [
-  // page
+  page,
+  navMenu,
+  post
 ]
 const i18n_refs_object = {
   name: 'i18n_refs_object',
@@ -100,7 +104,8 @@ const i18n_refs_object = {
   }]
 };
 customSchemaTypes = customSchemaTypes.map(schema => addLocalizationToSchemaType(schema))
-console.log(customSchemaTypes);
+
+
 export default createSchema({
   name: 'blog',
   types: schemaTypes // Built-in types
@@ -116,9 +121,9 @@ export default createSchema({
       simpleBlockContent,
       cta,
       siteSettings,
-      post,
-      navMenu,
-      page,
+      // post,
+      // navMenu,
+      // page,
       category,
       author,
       mainImage,
@@ -128,7 +133,7 @@ export default createSchema({
       bodyPortableText,
       excerptPortableText,
       ...customSchemaTypes,
-      // i18n_refs_object
+      i18n_refs_object
     ])
     .concat(allPlugs)
 })

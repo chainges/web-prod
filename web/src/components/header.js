@@ -1,7 +1,12 @@
 import CTALink from "./CTALink";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
+import {Link} from "gatsby-plugin-intl"
 import React from "react";
 import * as styles from "./header.module.css"
+import { useIntl, changeLocale } from "gatsby-plugin-intl"
+import { languages } from '../intl/languages';
+import { Icon, InlineIcon } from '@iconify/react';
+import globe2Icon from '@iconify/icons-bi/globe2';
 
 const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = true }) => {
   let headerClass = "fixed w-full z-30 top-0 text-white";
@@ -25,6 +30,9 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   let imgClass = "fill-current inline " + styles.logoSvg;
   let svgColor = "white"
   svgColor = !textWhite || scrolled ? "#2d3748" : "white";
+
+  const intl = useIntl();
+  const currentLocale = intl.locale;
 
   return (
     <nav id="header" className={headerClass}>
@@ -53,6 +61,27 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
                   <CTALink {...i} buttonActionClass={navActionClass} />
                 </li>
               ))}
+              <li>
+                <div className="flex">
+                  <InlineIcon icon={globe2Icon} style={{color: '#607D8B', marginTop: '5px'}} />
+                  <a onClick={() => changeLocale(languages[0].name)}
+                  style={{
+                    marginLeft: 5,
+                    marginRight: 5,
+                    textDecoration: (currentLocale == languages[0].name ? `underline`: ``),
+                    cursor: `pointer`,
+                  }}>{languages[0].name}</a>
+                  |
+                  <a onClick={() => changeLocale(languages[1].name)}
+                  style={{
+                    marginLeft: 5,
+                    marginRight: 5,
+                    textDecoration: (currentLocale == languages[1].name ? `underline`: ``),
+                    cursor: `pointer`,
+                  }}>{languages[1].name}</a>
+                   
+                </div>
+              </li>
             </ul>
           </div>
         )}
