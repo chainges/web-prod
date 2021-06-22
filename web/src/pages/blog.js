@@ -13,14 +13,14 @@ import SEO from "../components/seo";
 import { graphql } from "gatsby";
 
 export const query = graphql`
-  query IndexPageQuery($locale: String!) {
+  query IndexPageQuery {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
     }
     posts: allSanityPost(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, i18n_lang: { eq: $locale } }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
       edges {
         node {
@@ -30,7 +30,10 @@ export const query = graphql`
             ...SanityImage
             alt
           }
-          title
+          title {
+            en
+            no
+          }
           _rawExcerpt
           slug {
             current

@@ -5,9 +5,10 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string',
+      type: 'localeString',
       title: 'Title',
       description: 'Titles should be catchy, descriptive, and not too long',
+      // localize: true
     },
     {
       name: 'slug',
@@ -62,7 +63,7 @@ export default {
     },
     {
       name: 'body',
-      type: 'bodyPortableText',
+      type: 'localeBodyPortableText',
       title: 'Body',
     },
   ],
@@ -98,7 +99,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title.en',
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage',

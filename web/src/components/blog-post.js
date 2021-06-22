@@ -8,9 +8,11 @@ import PortableText from "./portableText";
 import React from "react";
 import { buildImageObj } from "../lib/helpers";
 import { imageUrlFor } from "../lib/image-url";
+import { useIntl } from "gatsby-plugin-intl";
 
 function BlogPost(props) {
   const { _rawBody, authors, categories, title, mainImage, publishedAt } = props;
+  const intl = useIntl();
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -29,8 +31,8 @@ function BlogPost(props) {
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <PortableText blocks={_rawBody} />}
+            <h1 className={styles.title}>{title[intl.locale]}</h1>
+            {_rawBody && _rawBody[intl.locale]  && <PortableText blocks={_rawBody[intl.locale]} />}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (

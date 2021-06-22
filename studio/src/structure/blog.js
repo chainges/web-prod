@@ -33,7 +33,6 @@ const blog = S.listItem()
             S.documentList('post')
               .title('Published posts')
               .menuItems(S.documentTypeList('post').getMenuItems())
-              // Only show posts with publish date earlier than now and that is not drafts
               .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**")) && !defined(i18n_lang)')
               // .child((documentId) =>
               //   S.document()
@@ -41,7 +40,7 @@ const blog = S.listItem()
               //     .schemaType('post')
               //     .views([S.view.form(), PreviewIFrame()])
               // )
-          ),
+              ),
         S.listItem()
           .title('All posts')
           .schemaType('post')

@@ -3,7 +3,7 @@ import * as styles from "./blog-post-preview.module.css";
 import { buildImageObj, cn, getBlogUrl } from "../lib/helpers";
 
 // import { Link } from "gatsby";
-import { Link } from "gatsby-plugin-intl";
+import { Link, useIntl } from "gatsby-plugin-intl";
 import PortableText from "./portableText";
 import React from "react";
 import { format } from "date-fns";
@@ -11,6 +11,7 @@ import { imageUrlFor } from "../lib/image-url";
 import { responsiveTitle3 } from "./typography.module.css";
 
 function BlogPostPreview(props) {
+  const intl = useIntl();
   return (
     <Link
       className={props.isInList ? styles.inList : styles.inGrid}
@@ -29,7 +30,7 @@ function BlogPostPreview(props) {
         )}
       </div>
       <div className={styles.text}>
-        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
+        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title[intl.locale]}</h3>
         {props._rawExcerpt && (
           <div className={styles.excerpt}>
             <PortableText blocks={props._rawExcerpt} />

@@ -4,6 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import localeString from './objects/localeString'
+import localeBodyPortableText from './objects/localeBodyPortableText';
 
 // document schemas
 import navMenu from './documents/navMenu'
@@ -33,62 +34,16 @@ import openGraph from './objects/openGraph'
 import latex from './latex'
 
 import {languages, baseLanguage} from '../schemas/documents/languages';
+import {addLocalizationToSchemaType} from './documents/documentTranslation';
 
 const allPlugs = Object.values(plugs).map((plug) => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
 })
 
-// helper function which adds i18n config to each schema with type === 'document' to dynamically add the configs and fields to all the custom schema types
-const addLocalizationToDocumentType = (schemaType) => {
-  if (schemaType.type !== 'document') {
-    return schemaType
-  }
-
-  return {
-    ...schemaType,
-    i18n: {
-      ...schemaType.i18n,
-      base: baseLanguage,
-      languages: languages,
-      // change the names of the default fields
-      fieldNames: {
-        lang: 'i18n_lang',
-        references: 'i18n_refs'
-      }
-    },
-    // add the fields in so we can query with them on graphql
-    fields: [
-      ...schemaType.fields,
-      {
-        name: 'i18n_lang',
-        type: 'string',
-        hidden: true
-      },
-      {
-        name: 'i18n_refs',
-        type: 'array',
-        hidden: true,
-        of: [{
-          type: 'i18n_refs_object',
-        }]
-      }
-    ]
-  }
-}
-
-const addLocalizationToSchemaType = (schemaType) => {
-  if (schemaType.type === 'object') {
-    return schemaType
-  } else {
-    return addLocalizationToDocumentType(schemaType)
-  }
-}
-
 // add schemas here in which you want to add localization. make sure to commnet/delete that schema from below "createSchema"
 let customSchemaTypes = [
   page,
-  navMenu,
-  post
+  navMenu
 ]
 const i18n_refs_object = {
   name: 'i18n_refs_object',
@@ -105,7 +60,6 @@ const i18n_refs_object = {
 };
 customSchemaTypes = customSchemaTypes.map(schema => addLocalizationToSchemaType(schema))
 
-
 export default createSchema({
   name: 'blog',
   types: schemaTypes // Built-in types
@@ -113,6 +67,7 @@ export default createSchema({
     .concat([
       latex,
       localeString,
+      localeBodyPortableText,
       variation,
       openGraph,
       experiment,
@@ -121,7 +76,7 @@ export default createSchema({
       simpleBlockContent,
       cta,
       siteSettings,
-      // post,
+      post,
       // navMenu,
       // page,
       category,

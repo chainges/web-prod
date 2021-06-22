@@ -6,10 +6,11 @@ import React, { useEffect } from "react";
 import SEO from "../components/seo";
 import { graphql } from "gatsby";
 import { toPlainText } from "../lib/helpers";
+import { useIntl } from "gatsby-plugin-intl";
 
 export const query = graphql`
-  query BlogPostTemplateQuery($slug: String! $locale: String!) {
-    post: sanityPost(slug: { current: { eq: $slug } } i18n_lang: { eq: $locale }) {
+  query BlogPostTemplateQuery($slug: String!) {
+    post: sanityPost(slug: { current: { eq: $slug } } ) {
       id
       publishedAt
       categories {
@@ -20,7 +21,10 @@ export const query = graphql`
         ...SanityImage
         alt
       }
-      title
+      title {
+        en
+        no
+      }
       slug {
         current
       }
@@ -60,12 +64,13 @@ export const query = graphql`
 const BlogPostTemplate = props => {
   const { data, errors } = props;
   const post = data && data.post;
+  const intl = useIntl();
   return (
     <Layout textWhite={true}>
       {errors && <SEO title="GraphQL Error" />}
       {post && (
         <SEO
-          title={post.title || "Untitled"}
+          title={post.title[intl.locale] || "Untitled"}
           description={toPlainText(post._rawExcerpt)}
           image={post.mainImage}
         />

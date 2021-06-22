@@ -18,8 +18,6 @@ export const getDefaultDocumentNode = (props) => {
     return S.document().views(I18nS.getDocumentNodeViewsForSchemaType(props.schemaType));
   } else if (props.schemaType === 'navigationMenu') {
     return S.document().views(I18nS.getDocumentNodeViewsForSchemaType(props.schemaType));
-  } else if (props.schemaType === 'post') {
-    return S.document().views(I18nS.getDocumentNodeViewsForSchemaType(props.schemaType));
   }
   return S.document();
 };
