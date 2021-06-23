@@ -93,8 +93,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 };
 
 exports.onCreatePage = ({ page, actions }) => {
+  // this function will called after each page is created.
+  // we will provide language to each page.
+  // from given page's path we will extract locale and then provide it to page so that we can use it in graphql query
+
   const { createPage, deletePage } = actions;
 
+  // delete current page, we will create same new page in which we will provide language
   deletePage(page);
 
   const getLocale = (path) => {
