@@ -99,7 +99,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title.en',
+      title: 'title.no',
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage',

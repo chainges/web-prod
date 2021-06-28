@@ -51,7 +51,7 @@ export default S.listItem()
             S.documentList('page')
               .title('Pages')
               .menuItems(S.documentTypeList('page').getMenuItems())
-              .filter('_type == "page" && _id != "frontpage"')
+              .filter('_type == "page" && _id != "frontpage"  && _id != "frontpage__i18n_no" && _id != "frontpage__i18n_en"')
           ),
       ])
   )

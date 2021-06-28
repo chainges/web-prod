@@ -1,6 +1,6 @@
 const languages = [
-    {name: 'en', title: 'English'},
-    {name: 'no', title: 'Norwegian'}
+    {name: 'no', title: 'Norwegian'},
+    {name: 'en', title: 'English'}
 ]
 const baseLanguage = languages[0]
 

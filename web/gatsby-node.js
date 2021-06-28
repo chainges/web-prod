@@ -103,7 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
   deletePage(page);
 
   const getLocale = (path) => {
-    let locale = "en";
+    let locale = baseLanguage.name;
     const pathname = path.split('/');
     if (pathname.length >= 2) {
       languages.forEach((language) => {
