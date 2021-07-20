@@ -22,7 +22,7 @@ function Paper() {
         }
     }, [])
     return (
-        <div style={{height: `${height}px`, width: '100%', backgroundColor: 'white', padding:'2em'}}>
+        <div class="container mx-auto px-8"  style={{height: `${height}px`, width: '100%', backgroundColor: 'white', padding:'2em'}}>
             <iframe
                 src='/widget.html'
                 id='paperFrame'
