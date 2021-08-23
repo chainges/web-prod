@@ -1,24 +1,18 @@
 {
     "siteTitle": "Scope 3-to-1 - Enkelt klimaregnskap",
-    "links": {
-        "title": "Links",
-        "pageTheme": "Page theme",
-        "sanityHelp": "Sanity Help",
-        "slackCommunity": "Slack Community"
-    },
     "legal": {
         "title": "Legal",
-        "terms": "Terms",
-        "privacy": "Privacy"
+        "termsOfService": "Terms of service",
+        "privacyAndCookies": "Privacy & Cookies"
     },
     "social": {
         "title": "Social",
-        "twitter": "Twitter",
-        "linkedin": "Linkedin"
+        "linkedin": "Linkedin",
+        "twitter": "Twitter"
     },
     "company": {
         "title": "Company",
-        "blog": "Blog",
+        "OmScope321": "Om Scope 321",
         "contact": "Contact"
     }
 }
