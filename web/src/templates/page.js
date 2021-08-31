@@ -12,6 +12,8 @@ import SEO from "../components/seo";
 import SignupEmail from "../components/signupEmail";
 import { graphql } from "gatsby";
 import Paper from "../components/Paper";
+import RichTextRender from "../components/RichTextRender";
+import Contact from "../components/Contact";
 
 // Add import of a custom component
 
@@ -106,9 +108,15 @@ const Page = props => {
             case "paper":
               el = <Paper />;
               break;
+            case "contact":
+              el = <Contact />
+              break;
             default:
               break;
           }
+          break;
+        case "richText":
+          el = <RichTextRender key={c._key} {...c} />
           break;
         default:
           el = null;
@@ -122,7 +130,7 @@ const Page = props => {
   };
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
-  const pageTitle = data.route && !data.route.useSiteTitle && page.title;
+  const pageTitle = (data.route && !data.route.useSiteTitle && page.title) || '';
 
   return (
     <Layout navMenuItems={menuItems} textWhite={true}>

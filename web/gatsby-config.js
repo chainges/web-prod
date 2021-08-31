@@ -44,6 +44,8 @@ module.exports = {
         // option to redirect to `/en` when connecting `/`
         // redirect: true,
       },
-    }
+    },
+    `gatsby-plugin-styled-components`,
+    { resolve: `gatsby-plugin-emotion` }
   ]
 };

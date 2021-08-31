@@ -21,7 +21,12 @@ const Footer = ({ siteTitle }) => {
             <ul className="list-reset mb-6">
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <span className="no-underline hover:underline text-gray-800 hover:text-orange-500">
-                <FormattedMessage id="legal.termsOfService" />
+                <Link
+                  to="/terms-of-service"
+                  className="no-underline hover:underline text-gray-800 hover:text-orange-500"
+                >
+                  <FormattedMessage id="legal.termsOfService" />
+                </Link>
                 </span>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">

@@ -14,5 +14,18 @@
         "title": "Selskap",
         "OmScope321": "Om Scope 321",
         "contact": "Ta kontakt med"
+    },
+    "contactPage": {
+        "titlePart1": "Ta gjerne kontakt med oss!",
+        "titlePart2": " ",
+        "titlePart3": " ",
+        "description": "Uansett hva det måtte være så kan du komme i kontakt med oss via skjemaet her og vi vil svare så fort som mulig.",
+        "form": {
+            "email": "Din epostadresse",
+            "fullname": "Fullt navn",
+            "subject": "Emne",
+            "message": "Din melding her",
+            "sendButtonText": "Sende"
+        }
     }
 }
