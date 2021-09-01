@@ -1,13 +1,14 @@
 import React from 'react'
 import BlockContent from '@sanity/block-content-to-react';
+import './RichTextRender.css'
 
 
 function RichTextRender(props) {
-    console.log("in rich text", props)
     return (
-        <div class="container mx-auto px-8">
-            <BlockContent blocks={props.content} />
-            Hello in rich text.
+        <div class="bg-white border-b py-8 text-black">
+            <div class="container max-w-5xl mx-auto m-8 rich-text-container">
+                <BlockContent blocks={props.content} />
+            </div>
         </div>
     )
 }
