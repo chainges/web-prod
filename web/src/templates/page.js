@@ -14,6 +14,7 @@ import { graphql } from "gatsby";
 import Paper from "../components/Paper";
 import RichTextRender from "../components/RichTextRender";
 import Contact from "../components/Contact";
+import BuilderRenderer from "../components/BuilderRenderer";
 
 // Add import of a custom component
 
@@ -117,6 +118,9 @@ const Page = props => {
           break;
         case "richText":
           el = <RichTextRender key={c._key} {...c} />
+          break;
+        case "builderio":
+          el = <BuilderRenderer key={c._key} {...c} />
           break;
         default:
           el = null;

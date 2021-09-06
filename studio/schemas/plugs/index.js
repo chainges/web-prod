@@ -7,6 +7,7 @@ export { default as ctaPlug } from './ctaPlug'
 export { default as uiComponentRef } from './uiComponent'
 export { default as pricing } from './pricing'
 export { default as richText } from './richText'
+export { default as builderio} from './builderio'
 
 /*
 export { default as cta } from './cta'

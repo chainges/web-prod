@@ -28,7 +28,8 @@ export default {
         { type: 'infoRows' },
         { type: 'ctaColumns' },
         { type: 'ctaPlug' },
-        { type: 'richText'}
+        { type: 'richText'},
+        { type: 'builderio'}
       ],
     },
   ],
