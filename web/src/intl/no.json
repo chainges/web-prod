@@ -1,19 +1,19 @@
 {
     "siteTitle": "Scope 3-to-1 - Enkelt klimaregnskap",
     "legal": {
-        "title": "Lovlig",
+        "title": "Juss og slikt",
         "termsOfService": "Vilkår for bruk",
         "privacyAndCookies": "Personvern og informasjonskapsler"
     },
     "social": {
-        "title": "Sosial",
+        "title": "Sosialt",
         "linkedin": "Linkedin",
         "twitter": "Twitter"
     },
     "company": {
-        "title": "Selskap",
-        "OmScope321": "Om Scope 321",
-        "contact": "Ta kontakt med"
+        "title": "Selskapet",
+        "OmScope321": "Om Scope321",
+        "contact": "Kontakt oss"
     },
     "contactPage": {
         "titlePart1": "Ta gjerne kontakt med oss!",
@@ -25,7 +25,7 @@
             "fullname": "Fullt navn",
             "subject": "Emne",
             "message": "Din melding her",
-            "sendButtonText": "Sende"
+            "sendButtonText": "Send"
         }
     }
 }

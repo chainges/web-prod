@@ -31,7 +31,12 @@ const Footer = ({ siteTitle }) => {
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <span className="no-underline hover:underline text-gray-800 hover:text-orange-500">
+                <Link
+                  to="/privacy"
+                  className="no-underline hover:underline text-gray-800 hover:text-orange-500"
+                >
                 <FormattedMessage id="legal.privacyAndCookies" />
+                </Link>
                 </span>
               </li>
             </ul>
