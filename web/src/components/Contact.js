@@ -2,8 +2,6 @@ import React from "react";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { GlobalStyles } from "twin.macro";
 import EmailIllustrationSrc from "../images/email-illustration.svg";
 
 import { FormattedMessage, useIntl } from "gatsby-plugin-intl";
@@ -57,7 +55,6 @@ export default ({
   textOnLeft = true
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-  console.log(<FormattedMessage id="contactPage.form.message" />);
   const intl = useIntl();
   return (
     <>
@@ -87,111 +84,3 @@ export default ({
   );
 };
 
-// import React from "react";
-// import EmailIllustrationSrc from "../images/email-illustration.svg";
-// import "tailwindcss/dist/base.css";
-
-// function Contact() {
-//   const subheading = "Contact Us";
-//   const heading = (
-//     <>
-//       Feel free to <span className="text-primary-500">get in touch</span>
-//       <wbr /> with us.
-//     </>
-//   );
-//   const description =
-//     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-//   const submitButtonText = "Send";
-//   const formAction = "#";
-//   const formMethod = "get";
-//   const textOnLeft = true;
-//   return (
-//     <div style={{ backgroundColor: "white" }} className={`relative`}>
-//       <div
-//         className={`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`}
-//       >
-//         <div
-//           className={`w-full max-w-md mx-auto md:max-w-none md:mx-0 md:w-5/12 flex-shrink-0 h-80 md:h-auto`}
-//         >
-//           <div
-//             style={{ backgroundImage: `url("${EmailIllustrationSrc}")` }}
-//             className={`rounded bg-contain bg-no-repeat bg-center h-full`}
-//           ></div>
-//         </div>
-//         <div
-//           className={`w-full max-w-md mx-auto md:max-w-none md:mx-0 md:w-7/12 mt-16 md:mt-0 md:mr-12 lg:mr-16 md:order-first`}
-//         >
-//           <div className={`lg:py-8 text-center md:text-left`}>
-//             {subheading && (
-//               <h5 className={`font-bold text-primary-500 text-center md:text-left`}>
-//                 {subheading}
-//               </h5>
-//             )}
-//             <h2
-//               className={`text-secondary-500 text-4xl sm:text-5xl font-black tracking-wide text-center mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`}
-//             >
-//               {heading}
-//             </h2>
-//             {description && (
-//               <p
-//                 className={`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`}
-//               >
-//                 {description}
-//               </p>
-//             )}
-//             <form
-//               action={formAction}
-//               method={formMethod}
-//               className={`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`}
-//             >
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Your Email Address"
-//                 className={`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`}
-//               />
-//               <input
-//                 type="text"
-//                 name="name"
-//                 placeholder="Full Name"
-//                 className={`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`}
-//               />
-//               <input
-//                 type="text"
-//                 name="subject"
-//                 placeholder="Subject"
-//                 className={`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`}
-//               />
-//               <input
-//                 type="textarea"
-//                 name="message"
-//                 placeholder="Your Message Here"
-//                 className={`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500 h-24`}
-//               />
-//               <button
-//                 type="submit"
-//                 className={`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300 inline-block mt-8`}
-//               >
-//                 {submitButtonText}
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Contact;
-
-// // import React from 'react'
-
-// // function Contact() {
-// //   return (
-// //     <div>
-
-// //     </div>
-// //   )
-// // }
-
-// // export default Contact

@@ -14,6 +14,7 @@
     "extract": "formatjs extract"
   },
   "dependencies": {
+    "@builder.io/react": "^1.1.46",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@iconify/icons-bi": "^1.1.5",
