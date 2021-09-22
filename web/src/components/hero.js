@@ -9,17 +9,20 @@ import { getGatsbyImageData } from "gatsby-source-sanity";
 function Hero(props) {
   const [imageData, setImageData] = useState(null);
   useEffect(() => {
-    if (props.illustration && props.illustration.image && props.illustration.image.asset && !props.illustration.disabled) {
-      setImageData(getGatsbyImageData(
-        props.illustration.image,
-        { maxWidth: 960 },
-        clientConfig.sanity
-      ));
+    if (
+      props.illustration &&
+      props.illustration.image &&
+      props.illustration.image.asset &&
+      !props.illustration.disabled
+    ) {
+      setImageData(
+        getGatsbyImageData(props.illustration.image, { maxWidth: 960 }, clientConfig.sanity)
+      );
     }
-  }, [props.illustration])
+  }, [props.illustration]);
 
   return (
-    <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <div className="container px-8 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left col */}
       <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
         <p className="uppercase tracking-loose w-full">{props.label}</p>
@@ -44,7 +47,8 @@ function Hero(props) {
           />
         ) : (
           <></>
-        )}</div>
+        )}
+      </div>
     </div>
   );
 }

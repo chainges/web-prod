@@ -5,6 +5,7 @@ import styled from "styled-components";
 import EmailIllustrationSrc from "../images/email-illustration.svg";
 
 import { FormattedMessage, useIntl } from "gatsby-plugin-intl";
+import data from "@iconify/icons-bi/globe2";
 
 
 const SectionHeading = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center`;
@@ -50,8 +51,8 @@ export default ({
   ),
   description = <FormattedMessage id="contactPage.description" />,
   submitButtonText = <FormattedMessage id="contactPage.form.sendButtonText" />,
-  formAction = "#",
-  formMethod = "get",
+  formName = "contact",
+  formMethod = "post",
   textOnLeft = true
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
@@ -69,7 +70,7 @@ export default ({
               {subheading && <Subheading>{subheading}</Subheading>}
               <Heading>{heading}</Heading>
               {description && <Description>{description}</Description>}
-              <Form action={formAction} method={formMethod}>
+              <Form name={formName} method={formMethod} data-netlify={true}>
                 <Input type="email" name="email" placeholder={intl.formatMessage({ id: "contactPage.form.email"}) } />
                 <Input type="text" name="name" placeholder={intl.formatMessage({ id: "contactPage.form.fullname"}) } />
                 <Input type="text" name="subject" placeholder={intl.formatMessage({ id: "contactPage.form.subject"}) } />
