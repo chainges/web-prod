@@ -71,6 +71,7 @@ export default ({
               <Heading>{heading}</Heading>
               {description && <Description>{description}</Description>}
               <Form name={formName} method={formMethod} data-netlify={true}>
+                <input type="hidden" name={formName} value="contact" />
                 <Input type="email" name="email" placeholder={intl.formatMessage({ id: "contactPage.form.email"}) } />
                 <Input type="text" name="name" placeholder={intl.formatMessage({ id: "contactPage.form.fullname"}) } />
                 <Input type="text" name="subject" placeholder={intl.formatMessage({ id: "contactPage.form.subject"}) } />
