@@ -2,11 +2,10 @@ import React from "react";
 import "tailwindcss/dist/base.css";
 import tw from "twin.macro";
 import styled from "styled-components";
-import EmailIllustrationSrc from "../images/email-illustration.svg";
+import EmailIllustrationSrc from "../images/email-illustration_green.svg";
 
 import { FormattedMessage, useIntl } from "gatsby-plugin-intl";
 import data from "@iconify/icons-bi/globe2";
-
 
 const SectionHeading = tw.h2`text-4xl sm:text-5xl font-black tracking-wide text-center`;
 const SubheadingBase = tw.h5`font-bold text-primary-500`;
@@ -45,8 +44,12 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      <FormattedMessage id="contactPage.titlePart1" /><span tw="text-primary-500"><FormattedMessage id="contactPage.titlePart2" /></span>
-      <wbr /><FormattedMessage id="contactPage.titlePart3" />
+      <FormattedMessage id="contactPage.titlePart1" />
+      <span tw="text-primary-500">
+        <FormattedMessage id="contactPage.titlePart2" />
+      </span>
+      <wbr />
+      <FormattedMessage id="contactPage.titlePart3" />
     </>
   ),
   description = <FormattedMessage id="contactPage.description" />,
@@ -67,16 +70,33 @@ export default ({
           </ImageColumn>
           <TextColumn textOnLeft={textOnLeft}>
             <TextContent>
-              {subheading && <Subheading>{subheading}</Subheading>}
+              {subheading && <Subheading style={{ color: "#14A45B" }}>{subheading}</Subheading>}
               <Heading>{heading}</Heading>
               {description && <Description>{description}</Description>}
               <Form name={formName} method={formMethod} data-netlify={true}>
                 <input type="hidden" name="form-name" value={formName} />
-                <Input type="email" name="email" placeholder={intl.formatMessage({ id: "contactPage.form.email"}) } />
-                <Input type="text" name="name" placeholder={intl.formatMessage({ id: "contactPage.form.fullname"}) } />
-                <Input type="text" name="subject" placeholder={intl.formatMessage({ id: "contactPage.form.subject"}) } />
-                <Textarea name="message" placeholder={intl.formatMessage({ id: "contactPage.form.message"}) } />
-                <SubmitButton type="submit">{submitButtonText}</SubmitButton>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder={intl.formatMessage({ id: "contactPage.form.email" })}
+                />
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder={intl.formatMessage({ id: "contactPage.form.fullname" })}
+                />
+                <Input
+                  type="text"
+                  name="subject"
+                  placeholder={intl.formatMessage({ id: "contactPage.form.subject" })}
+                />
+                <Textarea
+                  name="message"
+                  placeholder={intl.formatMessage({ id: "contactPage.form.message" })}
+                />
+                <SubmitButton type="submit" style={{ backgroundColor: "#14A45B" }}>
+                  {submitButtonText}
+                </SubmitButton>
               </Form>
             </TextContent>
           </TextColumn>
@@ -85,4 +105,3 @@ export default ({
     </>
   );
 };
-
