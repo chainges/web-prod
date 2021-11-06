@@ -1,10 +1,10 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 function Paper() {
-    
+
     const [height, setHeight] = useState(600);
     const iframeRef = useRef(null);
-    
+
     const handleResize = () => {
         if (iframeRef.current.contentWindow.document.body) {
             const contentHeight = iframeRef.current.contentWindow.document.body.scrollHeight + 100;
@@ -22,15 +22,15 @@ function Paper() {
         }
     }, [])
     return (
-        <div class="container mx-auto px-8"  style={{height: `${height}px`, width: '100%', backgroundColor: 'white', padding:'2em'}}>
+        <div class="container mx-auto lg:p-8" style={{ height: `${height}px`, width: '100%', backgroundColor: 'white' }}>
             <iframe
                 src='/widget.html'
                 id='paperFrame'
                 ref={iframeRef}
                 onLoad={() => {
                     handleResize();
-                }} 
-                style={{width: '100%', height: '100%'}}
+                }}
+                style={{ width: '100%', height: '100%' }}
             ></iframe>
         </div>
     )

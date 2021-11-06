@@ -26,7 +26,7 @@ function Hero(props) {
     <div className="container px-8 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left col */}
       <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-        <p className="uppercase tracking-loose w-full">{props.label}</p>
+        <p className="uppercase tracking-loose w-full pt-1">{props.label}</p>
         <h1 className="my-4 text-3xl lg:text-4xl xl:text-5xl w-full font-bold leading-tight">{props.heading}</h1>
         <div className="leading-normal text-2xl  mb-8">
           <PortableText blocks={props.tagline} />

@@ -42,6 +42,18 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   const intl = useIntl();
   const currentLocale = intl.locale;
 
+  const doNavigate = target => {
+    if (!target || !target.length) {
+      return;
+    }
+    const internal = /^\/(?!\/)/.test(target);
+    if (internal) {
+      navigate(target);
+    } else {
+      window.location = target;
+    }
+  };
+
   useEffect(() => {
     const btn = document.getElementById("mobile-menu-button");
     const menu = document.getElementById("mobile-menu");
@@ -54,7 +66,7 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
 
   return (
     <nav id="header" className={headerClass}>
-      <div className="w-full container mx-auto flex lg:flex-wrap items-center justify-between mt-0 py-2">
+      <div className="w-full container mx-auto flex lg:flex-wrap items-center justify-between mt-0">
         <div className="pl-4 flex items-center">
           <Link id="siteTitle" className={titleClass} to="/">
             <svg
@@ -126,14 +138,54 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
       <div id="nav-mobile-content" className={styles.navMobileContent}>
         <div id="mobile-menu" className="hidden transition-all">
           {navMenuItems.map(i => (
-            <>
-              <Link className={styles.mobileNavLink} to={i.route || i.link || "#"}>
-                {i.title}
-              </Link>
-              <hr></hr>
-            </>
-          ))}
 
+            (i.kind === "button") ?
+              <>
+                <div
+                  id="navAction"
+                  onClick={() => doNavigate(i.route || i.link || "#")}
+                  className={styles.mobileNavLink}
+                >
+                  {i.title}
+                </div>
+                <hr></hr>
+              </>
+              :
+              <>
+                <Link className={styles.mobileNavLink} to={i.route || i.link || "#"}>
+                  {i.title}
+                </Link>
+                <hr></hr>
+              </>
+
+
+          ))}
+          <div className={styles.mobileNavLanguageLink}>
+            <InlineIcon icon={globe2Icon} style={{ color: "#607D8B", marginTop: "5px" }} />
+            <a
+              onClick={() => changeLocale(languages[0].name)}
+              style={{
+                marginLeft: 5,
+                marginRight: 5,
+                textDecoration: currentLocale == languages[0].name ? `underline` : ``,
+                cursor: `pointer`
+              }}
+            >
+              {languages[0].name}
+            </a>
+            |
+            <a
+              onClick={() => changeLocale(languages[1].name)}
+              style={{
+                marginLeft: 5,
+                marginRight: 5,
+                textDecoration: currentLocale == languages[1].name ? `underline` : ``,
+                cursor: `pointer`
+              }}
+            >
+              {languages[1].name}
+            </a>
+          </div>
         </div>
       </div>
       <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
