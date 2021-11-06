@@ -12,6 +12,7 @@
     height: 55px;
     padding: 1rem 1.5rem;
     box-shadow: 2px 4px 10px #25383C;
+    line-height: 1;
 }
 
 .formGroup {

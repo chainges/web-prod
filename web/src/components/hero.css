@@ -1,0 +1,5 @@
+@media (min-width: 910px) and (max-width : 1023px){
+  .container{
+    max-width: 900px;
+  }
+}

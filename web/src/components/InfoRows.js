@@ -22,7 +22,7 @@ const InfoRow = props => {
   const sizeClassImg = img ? "sm:w-2/5" : "sm:w-1/1";
   return (
     <div className={"flex flex-wrap pb-6"}>
-      <div className={"w-3/5 p-6 " + sizeClassText}>
+      <div className={"w-full p-6 " + sizeClassText}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
@@ -67,7 +67,7 @@ const InfoRowFlipped = props => {
       ) : (
         <></>
       )}</div>}
-      <div className={"w-5/6 p-6 " + sizeClassText}>
+      <div className={"w-full p-6 " + sizeClassText}>
         <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">{props.title}</h3>
         <p className="text-gray-600 mb-8">
           <PortableText blocks={props.text} />
@@ -87,11 +87,11 @@ const InfoRows = props => {
   return (
     <section className="bg-white border-b py-8">
       <div className="container max-w-5xl mx-auto m-8">
-        <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+        <h1 className="w-full my-2 text-4xl sm:text-5xl font-bold leading-tight text-center text-gray-800">
           {props.title}
         </h1>
         <div className="w-full mb-4">
-          <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+          <div className="h-1 mx-auto gradient w-48 sm:w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
         {contentRows}
       </div>

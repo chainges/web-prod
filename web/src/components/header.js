@@ -1,12 +1,13 @@
 import CTALink from "./CTALink";
 // import { Link } from "gatsby";
 import { Link } from "gatsby-plugin-intl";
-import React from "react";
+import React, { useEffect } from "react";
 import * as styles from "./header.module.css";
 import { useIntl, changeLocale } from "gatsby-plugin-intl";
 import { languages } from "../intl/languages";
 import { Icon, InlineIcon } from "@iconify/react";
 import globe2Icon from "@iconify/icons-bi/globe2";
+import menuIcon from "@iconify/icons-cil/hamburger-menu";
 
 const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = true }) => {
   let headerClass = "fixed w-full z-30 top-0 text-white";
@@ -17,6 +18,10 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   navActionClass += !textWhite || !scrolled ? " bg-white text-gray-800" : "";
   navActionClass += textWhite || scrolled ? " gradient text-white" : "";
 
+  let navActionMobileClass = "hover:underline font-bold shadow opacity-75"
+  navActionMobileClass += !textWhite || !scrolled ? " bg-white text-gray-800" : "";
+  navActionMobileClass += textWhite || scrolled ? " gradient text-white" : "";
+
   let navContentClass =
     "w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 text-black p-4 lg:p-0 z-20";
   navContentClass += !textWhite || !scrolled ? " lg:bg-transparent bg-gray-100" : "";
@@ -26,6 +31,10 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   titleClass += !textWhite || scrolled ? " text-gray-800" : "";
   titleClass += textWhite || !scrolled ? " text-white" : "";
 
+  let toggleBtnClass = "lg:hidden mx-2";
+  toggleBtnClass += !textWhite || scrolled ? " text-gray-800" : "";
+  toggleBtnClass += textWhite || !scrolled ? " text-white" : "";
+
   let imgClass = "fill-current inline " + styles.logoSvg;
   let svgColor = "white";
   svgColor = !textWhite || scrolled ? "#2d3748" : "white";
@@ -33,9 +42,19 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
   const intl = useIntl();
   const currentLocale = intl.locale;
 
+  useEffect(() => {
+    const btn = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+  }, [])
+
   return (
     <nav id="header" className={headerClass}>
-      <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+      <div className="w-full container mx-auto flex lg:flex-wrap items-center justify-between mt-0 py-2">
         <div className="pl-4 flex items-center">
           <Link id="siteTitle" className={titleClass} to="/">
             <svg
@@ -100,10 +119,25 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
             </ul>
           </div>
         )}
+        <div id="mobile-menu-button" className={toggleBtnClass} style={{ cursor: "pointer" }}>
+          <InlineIcon icon={menuIcon} style={{ width: "35px", height: "35px" }} />
+        </div>
       </div>
+      <div id="nav-mobile-content" className={styles.navMobileContent}>
+        <div id="mobile-menu" className="hidden transition-all">
+          {navMenuItems.map(i => (
+            <>
+              <Link className={styles.mobileNavLink} to={i.route || i.link || "#"}>
+                {i.title}
+              </Link>
+              <hr></hr>
+            </>
+          ))}
 
+        </div>
+      </div>
       <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
-    </nav>
+    </nav >
   );
 };
 

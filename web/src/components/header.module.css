@@ -102,3 +102,21 @@
 .showNav {
   display: block;
 }
+
+.navMobileContent{
+  position: absolute;
+  background-color:#222222;
+  width: 100%;
+  color: #8B897D;
+}
+
+.mobileNavLink{
+  padding: 1rem;
+  display: block;
+}
+
+.mobileNavLink:hover{
+  background-color: #080808;
+  color: white;
+
+}
