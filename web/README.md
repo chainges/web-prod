@@ -1,1 +1,1 @@
-sanity-kitchen-sink-web
+scope321-web
