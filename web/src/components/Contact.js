@@ -45,6 +45,7 @@ export default ({
   heading = (
     <>
       <FormattedMessage id="contactPage.titlePart1" />
+      <wbr />
       <span tw="text-primary-500">
         <FormattedMessage id="contactPage.titlePart2" />
       </span>
