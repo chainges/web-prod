@@ -16,9 +16,9 @@
         "contact": "Contact us"
     },
     "contactPage": {
-        "titlePart1": "Do you want to ",
+        "titlePart1": "Do you want to\n ",
         "titlePart2": "try Scope321?",
-        "titlePart3": "",
+        "titlePart3": " ",
         "description": "Whatever is on your mind - let us know via our form below and we'll get back to you as soon as possible",
         "form": {
             "email": "Your Email Address",
