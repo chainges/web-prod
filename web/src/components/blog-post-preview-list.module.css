@@ -21,6 +21,9 @@
   grid-template-columns: 1fr;
   grid-column-gap: 2em;
   grid-row-gap: 2em;
+  @nest & li {
+    margin-left : 0px !important;
+  }
 }
 
 .browseMoreNav {

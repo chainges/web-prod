@@ -5,7 +5,7 @@ import './RichTextRender.css'
 
 function RichTextRender(props) {
     return (
-        <div class="bg-white border-b py-8 text-black">
+        <div class="bg-white border-b py-8 text-black px-6">
             <div class="container max-w-5xl mx-auto m-8 rich-text-container">
                 <BlockContent blocks={props.content} />
             </div>

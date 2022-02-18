@@ -1,5 +1,5 @@
 {
-    "siteTitle": "Scope 3-to-1 - Enkelt klimaregnskap",
+    "siteTitle": "Scope 3-to-1 - Easy Climate disclosures",
     "legal": {
         "title": "Legal",
         "termsOfService": "Terms of service",
@@ -12,8 +12,8 @@
     },
     "company": {
         "title": "Company",
-        "OmScope321": "Om Scope 321",
-        "contact": "Contact"
+        "OmScope321": "About Scope 321",
+        "contact": "Contact us"
     },
     "contactPage": {
         "titlePart1": "Do you want to ",

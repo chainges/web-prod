@@ -14,9 +14,11 @@
     "extract": "formatjs extract"
   },
   "dependencies": {
+    "@builder.io/react": "^1.1.46",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@iconify/icons-bi": "^1.1.5",
+    "@iconify/icons-cil": "^1.1.0",
     "@iconify/react": "^1.1.4",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^2.1.0",
@@ -27,6 +29,7 @@
     "gatsby": "^3.0.4",
     "gatsby-plugin-emotion": "^6.12.0",
     "gatsby-plugin-google-analytics": "^3.0.0",
+    "gatsby-plugin-google-gtag": "^4.2.0",
     "gatsby-plugin-image": "^1.0.1",
     "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-postcss": "^4.0.0",

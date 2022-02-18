@@ -1,5 +1,5 @@
 import { BottomWave, TopWave } from "../components/wave";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import CTA from "../components/cta";
 import CTAColumns from "../components/cta-columns";
@@ -17,11 +17,6 @@ import Contact from "../components/Contact";
 import BuilderRenderer from "../components/BuilderRenderer";
 
 // Add import of a custom component
-
-
-
-
-
 
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
@@ -72,6 +67,11 @@ const Page = props => {
     );
   }
 
+  const [headerHeight, setHeaderHeight] = useState("73px");
+  useEffect(() => {
+    setHeaderHeight(document.getElementById("header").clientHeight + "px");
+  }, []);
+
   const page = data.page || data.route.page;
 
   const content = (page._rawContent || [])
@@ -110,17 +110,17 @@ const Page = props => {
               el = <Paper />;
               break;
             case "contact":
-              el = <Contact />
+              el = <Contact />;
               break;
             default:
               break;
           }
           break;
         case "richText":
-          el = <RichTextRender key={c._key} {...c} />
+          el = <RichTextRender key={c._key} {...c} />;
           break;
         case "builderio":
-          el = <BuilderRenderer key={c._key} {...c} />
+          el = <BuilderRenderer key={c._key} {...c} />;
           break;
         default:
           el = null;
@@ -134,7 +134,7 @@ const Page = props => {
   };
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
-  const pageTitle = (data.route && !data.route.useSiteTitle && page.title) || '';
+  const pageTitle = (data.route && !data.route.useSiteTitle && page.title) || "";
 
   return (
     <Layout navMenuItems={menuItems} textWhite={true}>
@@ -147,7 +147,8 @@ const Page = props => {
         }}
         gradient={gradient}
       />
-      <div className="pt-24">{content}</div>
+      {/* <div className="pt-24">{content}</div> */}
+      <div style={{ paddingTop: headerHeight }}>{content}</div>
     </Layout>
   );
 };
