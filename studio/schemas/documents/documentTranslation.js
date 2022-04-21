@@ -11,7 +11,6 @@ export const i18n = {
   }
 }
 
-
 // helper function which adds i18n config to each schema with type === 'document' to dynamically add the configs and fields to all the custom schema types
 const addLocalizationToDocumentType = (schemaType) => {
   if (schemaType.type !== 'document') {
@@ -43,7 +42,7 @@ const addLocalizationToDocumentType = (schemaType) => {
         type: 'array',
         hidden: true,
         of: [{
-          type: 'i18n_refs_object',
+          type: 'i18n_refs_object'
         }]
       }
     ]
