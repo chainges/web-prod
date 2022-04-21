@@ -47,7 +47,7 @@ export default ({
       <FormattedMessage id="contactPage.titlePart1" />
       <wbr />
       <span tw="text-primary-500">
-        <FormattedMessage id="contactPage.titlePart2" />
+        <FormattedMessage id="contactPage.titlePart2" style={{ color: "#25855A" }}/>
       </span>
       <wbr />
       <FormattedMessage id="contactPage.titlePart3" />
@@ -71,7 +71,7 @@ export default ({
           </ImageColumn>
           <TextColumn textOnLeft={textOnLeft}>
             <TextContent>
-              {subheading && <Subheading style={{ color: "#14A45B" }}>{subheading}</Subheading>}
+              {subheading && <Subheading style={{ color: "#25855A" }}>{subheading}</Subheading>}
               <Heading>{heading}</Heading>
               {description && <Description>{description}</Description>}
               <Form name={formName} method={formMethod} data-netlify={true}>
@@ -95,7 +95,7 @@ export default ({
                   name="message"
                   placeholder={intl.formatMessage({ id: "contactPage.form.message" })}
                 />
-                <SubmitButton type="submit" style={{ backgroundColor: "#14A45B" }}>
+                <SubmitButton type="submit" style={{ backgroundColor: "#25855A" }}>
                   {submitButtonText}
                 </SubmitButton>
               </Form>
