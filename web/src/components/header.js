@@ -89,7 +89,8 @@ const Header = ({ showNav, siteTitle, scrolled, navMenuItems = [], textWhite = t
                 </clipPath>
               </defs>
             </svg>{" "}
-            {siteTitle}
+            {/* {siteTitle} */}
+            Scope321
           </Link>
         </div>
         {showNav && navMenuItems && (
