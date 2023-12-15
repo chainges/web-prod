@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog",
-  "version": "1.0.4",
+  "name": "Scope321-web",
+  "version": "1.1.0",
   "scripts": {
     "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel",
@@ -19,5 +19,10 @@
   },
   "dependencies": {
     "@octokit/core": "^3.4.0"
-  }
+  },
+  "description": "Web with yarn",
+  "main": "index.js",
+  "repository": "https://github.com/chainges/web-prod.git",
+  "author": "Eivind Melleby <emelleby@gmail.com>",
+  "license": "MIT"
 }
