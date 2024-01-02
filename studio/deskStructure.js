@@ -1,28 +1,27 @@
-import S from '@sanity/desk-tool/structure-builder'
-import { MdMenu } from "react-icons/md"
-import { GoBrowser as PageIcon, GoHome, GoSettings } from "react-icons/go"
-import blog from './src/structure/blog'
-import landingPages from './src/structure/landingPages'
-import PreviewIFrame from './src/components/previewIFrame'
+// Import necessary modules
+import { GoSettings, GoHome } from "react-icons/go";
+import { MdMenu } from "react-icons/md";
+import blog from './src/structure/blog';
+import landingPages from './src/structure/landingPages';
+import PreviewIFrame from './src/components/previewIFrame';
+import { i18n } from './schemas/documents/documentTranslation';
 
-import * as I18nS from 'sanity-plugin-intl-input/lib/structure';
-import {i18n} from './schemas/documents/documentTranslation';
-
+// Define a function to filter out document types
 const hiddenDocTypes = (listItem) =>
   !['route', 'navigationMenu', 'post', 'page', 'siteSettings', 'author', 'category'].includes(
     listItem.getId()
-  )
+  );
 
-export const getDefaultDocumentNode = (props) => {
-  if (props.schemaType === 'page') {
-    return S.document().views(I18nS.getDocumentNodeViewsForSchemaType(props.schemaType));
-  } else if (props.schemaType === 'navigationMenu') {
-    return S.document().views(I18nS.getDocumentNodeViewsForSchemaType(props.schemaType));
+// Define a function to get default document node
+const getDefaultDocumentNode = (S, props) => {
+  if (props.schemaType === 'page' || props.schemaType === 'navigationMenu') {
+    return S.document().views(props.schemaType);
   }
   return S.document();
 };
 
-export default () =>
+// Define the structure
+const structure = (S) =>
   S.list()
     .title('Content')
     .items([
@@ -31,7 +30,7 @@ export default () =>
         .title('Site settings')
         .icon(GoSettings)
         .child(
-          
+                    
           // S.documentList()
           //   .id('siteSettings')
           //   .title('Site Settings')
@@ -44,7 +43,7 @@ export default () =>
           S.document()
             .schemaType('siteSettings')
             .documentId('siteSettings')
-            .views([S.view.form(), PreviewIFrame()])
+            .views([S.view.form(), PreviewIFrame(S)])
         ),
       S.documentListItem()
         .title('Frontpage')
@@ -59,15 +58,18 @@ export default () =>
             .canHandleIntent((_name, params, _context) => {
               return params.type === 'page'
             })
-          // S.document()
+             // S.document()
           //   .schemaType('page')
           //   .documentId('frontpage')
           //   .views([S.view.form(), PreviewIFrame()])
         ),
-      blog,
-      landingPages,
-      // This returns an array of all the document types
+
+      blog(S),
+      landingPages(S),
+
+        // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ])
+export default structure;

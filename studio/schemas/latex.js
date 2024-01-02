@@ -4,7 +4,7 @@ import LatexRender from './components/preview/Latex'
 const Preview = (props) => {
   const { latex } = props.value
   const isInline = props.layout === 'inline'
-  return <LatexRender latex={latex} isInline={isInline} />
+  //return <LatexRender latex={latex} isInline={isInline} />
 }
 
 export default {
@@ -16,7 +16,7 @@ export default {
       name: 'latex',
     },
   ],
-  preview: {
+  components: {
     select: {
       latex: 'latex',
     },

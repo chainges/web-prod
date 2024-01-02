@@ -1,8 +1,8 @@
 // First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
+//import createSchema from 'part:@sanity/base/schema-creator'
 
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+//import schemaTypes from 'all:part:@sanity/base/schema-type'
 import localeString from './objects/localeString'
 import localeBodyPortableText from './objects/localeBodyPortableText';
 
@@ -31,7 +31,7 @@ import authorReference from './objects/authorReference'
 import link from './objects/link'
 import variation from './objects/variation'
 import openGraph from './objects/openGraph'
-import latex from './latex'
+import latex from './latex.js'
 
 import {languages, baseLanguage} from '../schemas/documents/languages';
 import {addLocalizationToSchemaType} from './documents/documentTranslation';
@@ -60,11 +60,7 @@ const i18n_refs_object = {
 };
 customSchemaTypes = customSchemaTypes.map(schema => addLocalizationToSchemaType(schema))
 
-export default createSchema({
-  name: 'blog',
-  types: schemaTypes // Built-in types
-    // Our custom types
-    .concat([
+export default [
       latex,
       localeString,
       localeBodyPortableText,
@@ -88,7 +84,7 @@ export default createSchema({
       bodyPortableText,
       excerptPortableText,
       ...customSchemaTypes,
-      i18n_refs_object
-    ])
-    .concat(allPlugs)
-})
+      i18n_refs_object,
+      ...allPlugs
+    ]
+    //.concat(allPlugs)

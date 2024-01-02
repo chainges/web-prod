@@ -10,9 +10,7 @@ export default {
       name: 'caption',
       type: 'string',
       title: 'Caption',
-      options: {
-        isHighlighted: true
-      }
+      fieldset: 'main',
     },
     {
       name: 'alt',
@@ -20,10 +18,18 @@ export default {
       title: 'Alternative text',
       description: 'Important for SEO and accessibility.',
       validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
-      options: {
-        isHighlighted: true
-      }
+      fieldset: 'main',
     }
+  ],
+  fieldsets: [
+    {
+      name: 'main',
+      title: 'Main Settings',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   preview: {
     select: {

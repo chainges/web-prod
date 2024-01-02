@@ -1,9 +1,13 @@
-import client from 'part:@sanity/base/client'
+import {createClient} from '@sanity/client'
 import { MdLink } from "react-icons/md"
 
 function myAsyncSlugifier(input) {
   const query = '*[_id == $id][0]'
   const params = {id: input._ref}
+  const client = createClient({
+    apiVersion: '2022-03-10',
+    projectId: 'i2tixcom',
+  })
   return client.fetch(query, params).then(doc => {
     return doc.title.toLowerCase().replace(/\s+/g, '-').slice(0, 200);
   });

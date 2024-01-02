@@ -50,6 +50,7 @@ export function serializeStructure (item, context, resolverArgs = []) {
 
 export function getDefaultStructure () {
   const items = StructureBuilder.documentTypeListItems()
+  console.log("Structure ===", items)
   return StructureBuilder.list()
     .id('__root__')
     .title('Content')

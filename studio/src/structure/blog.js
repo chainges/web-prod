@@ -1,4 +1,4 @@
-import S from '@sanity/desk-tool/structure-builder'
+//import S from '@sanity/desk-tool/structure-builder'
 import {
   GoMegaphone as BlogIcon,
   GoChecklist as ApprovedIcon,
@@ -18,7 +18,7 @@ export const icons = {
   AllIcon,
 }
 
-const blog = S.listItem()
+const blog =(S)=> S.listItem()
   .title('Blog')
   .icon(BlogIcon)
   .child(

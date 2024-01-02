@@ -1,11 +1,11 @@
-import S from '@sanity/desk-tool/structure-builder'
+//import S from '@sanity/desk-tool/structure-builder'
 import PreviewIFrame from '../../src/components/previewIFrame'
 
 import {i18n} from '../../schemas/documents/documentTranslation';
 
 import { MdMenu } from "react-icons/md"
 
-export default S.listItem()
+export default (S)=> S.listItem()
   .title('Page Builder')
   .child(
     S.list()

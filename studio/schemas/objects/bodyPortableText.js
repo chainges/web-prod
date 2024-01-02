@@ -41,10 +41,8 @@ export default {
           {
             title: 'Highlight',
             value: 'highlight',
-            blockEditor: {
-              icon: highlightIcon,
-              render: highlightRender
-            }
+            icon: highlightIcon,
+            component: highlightRender
           }
 
           /*
