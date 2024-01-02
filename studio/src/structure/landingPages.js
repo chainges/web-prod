@@ -41,7 +41,7 @@ export default (S)=> S.listItem()
                 S.document()
                   .documentId(documentId)
                   .schemaType('route')
-                  .views([S.view.form(), PreviewIFrame()])
+                  .views([S.view.form(), PreviewIFrame(S)])
               )
           ),
         S.listItem()
