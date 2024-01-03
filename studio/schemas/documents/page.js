@@ -6,7 +6,7 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Title'
     },
     {
       name: 'navMenu',
@@ -14,7 +14,7 @@ export default {
       title: 'Navigation menu',
       // weak: true, // Uncomment if you want to be able to delete navigation even though pages refer to it
       to: [{ type: 'navigationMenu' }],
-      description: 'Which nav menu should be shown, if any',
+      description: 'Which nav menu should be shown, if any'
     },
     {
       name: 'content',
@@ -28,9 +28,14 @@ export default {
         { type: 'infoRows' },
         { type: 'ctaColumns' },
         { type: 'ctaPlug' },
-        { type: 'richText'},
-        { type: 'builderio'}
-      ],
+        { type: 'richText' },
+        { type: 'builderio' }
+      ]
     },
-  ],
+    {
+      name: 'language',
+      type: 'string',
+      readOnly: true
+    }
+  ]
 }

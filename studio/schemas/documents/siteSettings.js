@@ -16,13 +16,13 @@ export default {
       type: 'openGraph'
     },
     {
-      type: 'string',
+      type: 'color',
       name: 'primaryColor',
       title: 'Primary brand color',
       description: 'Used to generate the primary accent color for websites, press materials, etc'
     },
     {
-      type: 'string',
+      type: 'color',
       name: 'secondaryColor',
       title: 'Secondary brand color',
       description: 'Used to generate the secondary accent color for websites, press materials, etc'

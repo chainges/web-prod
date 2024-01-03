@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "@sanity/client": "^6.10.0",
+    "@sanity/color-input": "^3.1.0",
     "@sanity/dashboard": "^3.1.6",
+    "@sanity/document-internationalization": "^2.0.2",
+    "@sanity/language-filter": "^3.2.1",
     "@sanity/vision": "^3.23.4",
     "katex": "0.11.1",
     "prop-types": "^15.8.1",
@@ -25,8 +28,10 @@
     "react-instagram-embed": "^3.0.0",
     "react-player": "^2.14.1",
     "sanity": "^3.23.4",
+    "sanity-plugin-asset-source-unsplash": "^1.1.2",
     "sanity-plugin-dashboard-widget-document-list": "^1.0.1",
     "sanity-plugin-dashboard-widget-netlify": "^2.0.1",
+    "sanity-plugin-internationalized-array": "^1.10.3",
     "styled-components": "^6.1.6"
   },
   "devDependencies": {
